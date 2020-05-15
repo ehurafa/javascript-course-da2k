@@ -75,7 +75,29 @@ indentação correta do código, para ficar dentro da IIFE.
 	uma função anônima que irá retornar a soma dos dois números que essa função
 	anônima tem como seus argumentos.
 	*/
-	console.log( 'O resultado da soma é:' );
+	console.log( `O resultado da soma é: ${sum((x, y)=> x+y)}`  );
+	
+	/*
+	Agora declare outra variáveis chamadas `subtraction`, `multiplication`,
+	`division` e `mod`, e atribua à elas `calculator`, passando números
+	diferentes para cada chamada.
+	*/
+	let subtraction = calculator(5667, 345);
+	let multiplication = calculator(4, 90);
+	let division = calculator(57, 4);
+	let mod = calculator(34, 2);
+	
+	/*
+	Mostre as variáveis acima no `console` (uma chamada de console por variável),
+	criando a função de `callback` que faz o cálculo para subração, multiplicação,
+	divisão e módulo (resto de divisão), conforme a função utilizada.
+	As suas respostas devem estar abaixo dos `console.log` referentes à cada
+	chamada.
+	*/
+	console.log( `O resultado da subtração é: ${subtraction((x, y) => x-y)}`);
+	console.log( `O resultado da multiplicação é: ${multiplication((x, y) => x*y)}`);
+	console.log( `O resultado da divisão é: ${division((x, y) => x/y)}`);
+	console.log( `O resultado do módulo é: ${mod((x, y) => x%y)}`);
 
 		
 		
