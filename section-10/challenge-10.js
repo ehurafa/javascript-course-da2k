@@ -61,9 +61,9 @@ e faça a indentação correta.
 	operador passado para a função "calculator", e passando para esse método
 	os dois parâmetros da função de retorno de "calculator".
 	*/
-	let calculator = function(op) {  console.log('opp ', op);
+	let calculator = function(op) { 
 	
-		if (op) {  console.log('true ');			
+		if (op) { 			
 			return function(x, y) { 
 			  if (x && y) {
 					if (typeof x != "number" || typeof y != "number") { 
@@ -71,7 +71,7 @@ e faça a indentação correta.
 					} else {
 						if (isOperatorValid(op) ) {
 								return operation[op](x, y);
-						} else {  console.log('bla');
+						} else { 
 							console.log(showErrorMessage(op));
 						}
 						
