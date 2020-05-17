@@ -61,17 +61,25 @@ e faça a indentação correta.
 	operador passado para a função "calculator", e passando para esse método
 	os dois parâmetros da função de retorno de "calculator".
 	*/
-	let calculator = function(op) {
-		if(! op) {
-			return false;
-		} else {
+	let calculator = function(op) {  console.log('opp ', op);
+	
+		if (op) {  console.log('true ');			
 			return function(x, y) { 
-				if (typeof x != "number" || typeof y != "number") { 
-					return false; 
-				} else {
-					return operation[op](x, y);
+			  if (x && y) {
+					if (typeof x != "number" || typeof y != "number") { 
+						return false; 
+					} else {
+						if (isOperatorValid(op) ) {
+								return operation[op](x, y);
+						} else {  console.log('bla');
+							console.log(showErrorMessage(op));
+						}
+						
+					}
 				}
 			}
+		} else {  
+			return false;
 		}
 	}
 	
@@ -92,8 +100,8 @@ e faça a indentação correta.
 	Essa função deverá retornar a frase:
 	'Operação "[OPERATOR]" não permitida!'
 	*/
-	let showErrorMessage = (op) => {
-		if(!op) {
+	let showErrorMessage = (op) => {  
+		if ( !isOperatorValid(op) ) {   
 			return `Operação "${op}" não permitida!`;
 		}
 	}
@@ -116,10 +124,11 @@ e faça a indentação correta.
 	*/
 	operationSignal = '+';
 	let sum = calculator(operationSignal);
-	console.log('sum ', sum);
-	
+	console.log('sum() ', sum(4,4));
+		
 	/*
 	PASSO 3:
+	
 	"sum" agora é uma função, e, se o sinal correto não foi passado para a
 	função "calculator", "sum" será false. Certifique-se de que "sum" não é
 	"false", e então atribua às variáveis "number1" e "number2", dois números
@@ -130,6 +139,29 @@ e faça a indentação correta.
 	- O segundo, a função de soma, passando os dois operandos.
 	- Se "sum" for "false", mostrar no console a mensagem de erro.
 	*/
+	if (sum) { 
+		number1 = 89;
+		number2 = 23;
+		console.log( showOperationMessage(operationSignal, number1, number2) + sum(number1, number2));
+	} else { 
+		console.log( showErrorMessage(operationSignal));
+	}
+	
+	/*
+	Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
+	divisão e resto. Crie variáveis com os nomes "subtraction",
+	"multiplication", "division" e "mod".
+	*/
+	
+	// ...
+	/*
+	Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
+	a mensagem de erro será mostrada no console.
+	*/
+	
+	operationSignal2 = 'v';
+	let invalidSum = calculator(operationSignal2);
+	console.log(invalidSum(4,4));	
 	
 		
 }())
