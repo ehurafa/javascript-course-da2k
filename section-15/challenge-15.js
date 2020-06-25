@@ -24,23 +24,72 @@
 	*/
 	// ?
 	
-	const Person = () => {
-		return {
-			"name": name,
-			"lastName": lastName,
-			"age": age,
-			"getFullName": () => {
-				return `${this.name} ${this.lastName}`
-			}
-			"getAge": () => {
-				return this.age
-			}
-			"addAge": () => {
-				
-			}
-			
+	const Person = function(name, lastName, age) {
+		
+		this.name =  name;
+		this.lastName = lastName;
+		this.age = age;
+		this.getFullName = function() {
+			return `${this.name} ${this.lastName}`;	
+		} 
+		this.getAge = function() {
+			return this.age;
 		}
+		this.addAge = function() {
+			this.age += arguments[0];
+			return this;
+		}
+	
 	}
+	
+	/*
+	Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
+	pessoas. As variáveis deverão ser o primeiro nome da pessoa. Passe os
+	parâmetros corretamente para o construtor para criar as novas pessoas.
+	Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
+	*/
+	console.log( 'Novas pessoas criadas à partir de Person:' );
+	// ?
+	
+	let joao = new Person('Joao', 'Silva', 43 );
+	let creuza = new Person('Creuza', 'Souza', 55 );
+	let enzo = new Person('Enzo', 'Andrade', 8 );
+	console.log(joao );
+	console.log(creuza  );
+	console.log(enzo );
+	
+	/*
+	Mostre no console o nome completo de cada pessoa.
+	*/
+	console.log( '\nNomes das pessoas:' );
+	// ?
+	
+	console.log(joao.getFullName() );
+	console.log(creuza.getFullName() );
+	console.log(enzo.getFullName() );
+	
+	/*
+	Mostre no console as idades de cada pessoa, com a frase:
+	- "[NOME COMPLETO] tem [IDADE] anos."
+	*/
+	console.log( '\nIdade das pessoas:' );
+	// ?
+	
+	console.log(`${joao.getFullName()} tem ${joao.getAge()} anos` );
+	console.log(`${creuza.getFullName()} tem ${joao.getAge()} anos` );
+	console.log(`${enzo.getFullName()} tem ${joao.getAge()} anos` );
+	
+	/*
+	Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
+	cada um. A frase deverá ser no formato:
+	- "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
+	*/
+	console.log( '\nNova idade das pessoas:' );
+	
+	console.log(`${joao.getFullName()} agora tem ${joao.addAge(72).getAge()} anos` );
+	console.log(`${creuza.getFullName()} agora tem ${joao.addAge(3).getAge()} anos` );
+	console.log(`${enzo.getFullName()} agora tem ${joao.addAge(20).getAge()} anos` );
+
 
 
 }())
