@@ -45,6 +45,71 @@
 	});
 	console.log( newFullName.join(' '));
 	
+	/*
+	- Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
+	cada nome por vírgula. Entre o penúltimo e o último nome, o separador deve
+	ser um "e". No final, concatene com a frase: " são meus amigos.".
+	O resultado final deve ficar mais ou menos assim:
+	- "João, Maria, Roberto, Pedro e Marcos são meus amigos."
+	- Detalhe: o código abaixo deve funcionar com um array de qualquer tamanho.
+	5 nomes foi somente uma sugestão ;)
+	*/
+	console.log( '\nMeus amigos:' );
+	// ?
 	
+	let names = ['Aline', 'Andressa', 'Beatriz', 'Bianca', 'Bruna'];
+	
+	let re = names.reduce(function(a, b, i) {
+		let separator = names.length -1 === i ? ' e ': ', ';
+		return a + separator + b;
+	});
+	console.log(re);
+	
+	/*
+	Usando o replace(), faça a string "Roberto" virar "Roberta".
+	Mostre o resultado no console.
+	*/
+	console.log( '\nEra "Roberto", agora é:' );
+	// ?
+
+	let ro = 'Roberto';
+	ro = ro.replace('to', 'ta');
+	console.log(ro);
+	
+	/*
+	Mostre no console a parte "nando" da string "Fernando". Use o método que
+	faz a busca do final para o início da string.
+	*/
+	console.log( '\nParte de uma string:' );
+	// ?
+	
+	let na = 'Fernando';
+	console.log(na.slice('Fernando'.lastIndexOf('nando')));
+	
+	console.log(na.substring(3,8));
+	
+	/*
+	Declare uma variável chamada `myName`, que receba o seu primeiro nome,
+	escrito de forma natural.
+	Mostre no console esse nome, mas com as letras intercalando entre maiúsculas
+	e minúsculas.
+	- Detalhe: o código abaixo deve funcionar da mesma forma para qualquer nome,
+	de qualquer tamanho, escrito de qualquer forma.
+	Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
+	*/
+	console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
+	
+	let myName = 'Rafael';
+	
+	let newName = [];
+	
+	for(let i = 0, len = myName.length; i < len; i++) {
+		newName.push(i % 2 === 0 ? myName[i].toLowerCase() : myName[i].toUpperCase());
+	}
+	
+	console.log(newName.join(''));
+	
+	// ?
+		
 
 }())
